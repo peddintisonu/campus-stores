@@ -37,13 +37,33 @@ The desk had every fact it needed at 7:30 pm, but the product had no place to ke
 | **Morning** | Read three screens to work out what is expected. | A **Due back this shift** strip opens the register: *AD-12 · with Leela Das · Due now*. |
 | **Check-in** | Find the slip in the list by hand. | **Check in a unit by ID**: type the label. **AD-15** answers *"not on loan, open loans for this type: AD-12 on L-404, with Leela Das"*. **AD-12** shows the slip, the borrower, the current holder and the promise, with **Handed in by** pre-filled with Leela. One click closes it. |
 
-Smaller fixes: errors on the slip form now appear next to the form instead of only in the status bar, and **Restart sample shift** asks for confirmation before wiping the shift.
+Smaller fixes:
+- Each approved item on a request's page shows where it is now, e.g. *USB-C → HDMI adapter · AD-12 · L-404 · with Leela Das · back by Sat 9 am*.
+- Errors on the slip form now appear next to the form instead of only in the status bar.
+- **Restart sample shift** asks for confirmation before wiping the shift.
+- All new screens were checked at phone width (375 px).
 
 ### The same job, using the change
 
-1. **Fri 3:45 pm:** Requests → Courtyard screening → **Issue this request**. PR-04 is filled in. I read the labels and choose SP-02 and AD-12, collected by Kabir Sen, due Fri 8 pm. **Issue kit** creates L-402, L-403 and L-404 together.
-2. **Fri 7:30 pm:** Loan register → RQ-214 → **Record return**. Projector and speaker are *Back at the desk*. The adapter is *Still out*, with Leela Das, back by Sat 9 am. The group reads *2 of 3 back · 1 outstanding*, and slip L-404 now names Leela.
-3. **Sat 9:00 am:** the strip at the top already says *AD-12 · with Leela Das · Due now*. Leela hands over an adapter and I type the ID from its label. If it says AD-15, the app tells me that unit isn't on loan and that AD-12 is the one with her. With AD-12, I click **Check in AD-12 · close L-404**. The history now reads *Borrowed by Kabir Sen · Returned by Leela Das · Sat 9:00 am*, and RQ-214 is fully returned.
+**1. Fri 3:45 pm, pickup.** Requests → Courtyard screening → **Issue this request**. PR-04 is filled in because it's the only projector available. The speaker and adapter each have two identical units, so I read the labels and choose SP-02 and AD-12, collected by Kabir Sen, due Fri 8 pm. **Issue kit** creates L-402, L-403 and L-404 together.
+
+![Issue kit form with PR-04 pre-filled and the speaker and adapter waiting for a label-based choice](docs/1-issue-kit.png)
+
+**2. Fri 7:30 pm, partial return.** Loan register → RQ-214 → **Record return**. Projector and speaker are *Back at the desk*. The adapter is *Still out*, with Leela Das, back by Sat 9 am. The form won't save a *Still out* item without both.
+
+![Return checklist with the adapter marked still out, with Leela Das, back by Sat 9 am](docs/2-return-checklist.png)
+
+After saving, the group reads *2 of 3 back · 1 outstanding*, and slip L-404 names Leela and the promise. A linked handover note is added to the desk book.
+
+![Loan register after the return: RQ-214 2 of 3 back, L-404 now with Leela Das, promised Sat 9 am](docs/3-after-return.png)
+
+**3. Sat 9:00 am, the morning shift.** The strip at the top already says *AD-12 · with Leela Das · Due now*. Leela hands over an adapter and I type the ID from its label. If it's the other adapter, the app says it isn't on loan and points to the one she should have:
+
+![Lookup for AD-15: not on loan, open loan for this type is AD-12 on L-404 with Leela Das](docs/4-morning-wrong-adapter.png)
+
+With AD-12, the card shows the borrower, the current holder and the promise, with **Handed in by** pre-filled with Leela. **Check in AD-12 · close L-404** closes it. The history reads *Borrowed by Kabir Sen · Returned by Leela Das · Sat 9:00 am*, and RQ-214 is fully returned.
+
+![AD-12 check-in card: borrowed by Kabir Sen, now with Leela Das, handed in by Leela Das](docs/5-checkin.png)
 
 ### What I kept, and what I left out on purpose
 

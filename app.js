@@ -200,6 +200,23 @@
     "</div></div>";
   const badge = (t, good = false) =>
     '<span class="tag' + (good ? " good" : "") + '">' + esc(t) + "</span>";
+  // Where one approved item on a request stands now, from its latest slip.
+  function itemState(r, type) {
+    const l = s.loans
+      .filter((l) => l.req === r.id && typeOf(l) === type)
+      .pop();
+    if (!l) return ' <small class="itemstate">· not issued</small>';
+    const where = l.back
+      ? "returned"
+      : l.holder
+        ? "with " + l.holder + " · back by " + l.expected
+        : "out with " + l.who + " · due " + l.due;
+    return (
+      ' <small class="itemstate">· ' +
+      esc(l.asset + " · L-" + l.num + " · " + where) +
+      "</small>"
+    );
+  }
   function requestPage() {
     let html = head(
       "Approved requests",
@@ -220,7 +237,7 @@
         "</p><p><b>Return by</b> " +
         r.due +
         "</p><p><b>Approved equipment</b></p><ul>" +
-        r.items.map((x) => "<li>" + x + "</li>").join("") +
+        r.items.map((x) => "<li>" + esc(x) + itemState(r, x) + "</li>").join("") +
         "</ul><p>" +
         r.note +
         "</p>" +
